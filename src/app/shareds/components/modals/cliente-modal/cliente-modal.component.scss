@@ -1,0 +1,21 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.client-item {
+    display: flex;
+    align-items: center;
+}
+
+.client-name {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mat-list-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}

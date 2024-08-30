@@ -1,0 +1,20 @@
+<mat-card class="product-card">
+    <mat-card-header>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ product.model }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}">
+
+    <mat-card-content>
+        <p><strong>Preço:</strong> {{ product.price | currency:'BRL' }}</p>
+        <p><strong>Em Estoque:</strong> {{ product.stock }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addToCustomer(product)">
+            <mat-icon>add</mat-icon>
+             Selcionar Cliente
+        </button>
+    </mat-card-actions>
+</mat-card>

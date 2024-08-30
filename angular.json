@@ -32,7 +32,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/shareds/styles.scss"
             ],
             "scripts": []
           },

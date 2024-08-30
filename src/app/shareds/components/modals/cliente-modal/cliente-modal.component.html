@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Selecione um Cliente</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill" class="search-field">
+    <mat-label>Buscar Cliente</mat-label>
+    <input matInput [(ngModel)]="searchTerm" placeholder="Digite o nome do cliente">
+  </mat-form-field>
+
+  <mat-selection-list [(ngModel)]="selectedClients">
+    <mat-list-option *ngFor="let client of filteredClients()" [value]="client.id">
+      <div class="client-item">
+        <img mat-list-avatar [src]="client.photoUrl" alt="{{ client.name }}">
+        <span class="client-name">{{ client.name }}</span>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onAddClient()">Adicionar Cliente</button>
+  <span class="spacer"></span>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Salvar</button>
+</mat-dialog-actions>

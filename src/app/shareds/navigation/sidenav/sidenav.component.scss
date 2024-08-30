@@ -1,0 +1,57 @@
+@import '../../../../shareds/colors.scss';
+
+.main-container {
+    height: 100vh;
+    background-color: $primary-background;
+}
+
+.side-menu {
+    width: 250px;
+    background-color: #1f1f1f;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    border-right: 1px solid $border;
+    display: block;
+}
+
+.menu-header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid $border;
+}
+
+.mat-nav-list {
+    padding: 0;
+}
+
+::ng-deep .side-menu .menu-text {
+    color: #ffffff !important;
+}
+
+.mat-list-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.menu-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.menu-item {
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: $primary-background;
+}
+
+//submenu
+.mat-menu-panel {
+    cursor: pointer;
+}
+
+.mat-menu-item {
+    display: flex;
+    align-items: end;
+}
