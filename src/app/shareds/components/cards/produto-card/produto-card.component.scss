@@ -1,18 +1,134 @@
+@import "../../../../../shareds/colors.scss";
+@import "../../../../../shareds/styles/cards";
+
 .product-card {
-    max-width: 300px;
-    margin: 20px;
-}
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px $box-shadow;
+    }
 
-.product-card img {
-    width: 100%;
-    height: auto;
-}
+    .header-container {
+        background: $dark-gray;
+        color: $white;
+        padding: 10px;
+        position: relative;
 
-.mat-card-title {
-    font-weight: bold;
-}
+        .ribbon {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: $red;
+            padding: 5px 15px;
+            color: $white;
+            font-weight: bold;
+            transform: rotate(-15deg);
+            box-shadow: 0 4px 6px $box-shadow;
+        }
 
-.mat-card-actions {
-    display: flex;
-    justify-content: flex-end;
+        mat-card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            color: $white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 100%;
+        }
+    }
+
+    .image-container {
+        position: relative;
+        height: 300px;
+        background: $dusty-rose;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            cursor: pointer;
+            background: $very-light-gray;
+            color: $dark-gray;
+            border: 2px dashed $burnt-orange;
+
+            mat-icon {
+                font-size: 3rem;
+                margin-bottom: 5px;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            &:hover {
+                background: $translucent-white;
+            }
+        }
+    }
+
+    .info-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+        background: $white;
+
+        .info-item {
+            font-size: 1rem;
+            color: $dark-gray;
+
+            strong {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+
+            input {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid $light-gray;
+                border-radius: 4px;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    mat-card-actions {
+        padding: 10px 15px;
+        background: $very-light-gray;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            min-width: 130px;
+
+            mat-icon {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    &.out-of-stock {
+        background: $translucent-white;
+        box-shadow: none;
+        transform: none;
+
+        .header-container {
+            background: $burnt-orange;
+        }
+
+        .ribbon {
+            display: block;
+        }
+    }
 }

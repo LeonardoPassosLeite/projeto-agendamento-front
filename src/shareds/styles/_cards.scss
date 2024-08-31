@@ -1,0 +1,12 @@
+@import"../colors.scss";
+
+.product-card {
+    width: 500px;
+    height: 550px;
+    background: $light-gray;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 50px;
+}

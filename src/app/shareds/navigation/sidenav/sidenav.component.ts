@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MaterialModule } from '../../../../shareds/Commons/MaterialModule';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
   imports: [
+    MaterialModule,
     RouterOutlet,
-    MatSidenavModule,
-    MatListModule,
-    MatMenuModule,
     RouterLink,
     RouterLinkActive
   ],

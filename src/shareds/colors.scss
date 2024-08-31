@@ -1,8 +1,24 @@
-$primary-background: #ccc5db69;
+//cores
+$white: #fff;
+$gray: #c5c6c7;
+$very-light-gray: #fafafa;
+$light-gray: #f1f1f1;
+$dark-gray: #3a3a3a;
+$cyan: #66fcf1;
+$red : #d10000c7;
+$dusty-rose: #d199008c;
+$burnt-orange: #ff6f00;
+$translucent-white: rgba(255, 255, 255, 0.8);
+
+//variaveis
+$primary-background: linear-gradient(135deg, #000000, #1c1c1c);
 $border: #cacaca;
 $menu-header-background: #272727;
 $border-color: #444;
 $text-color-light: #bbb;
 $text-color-white: #fff;
 $hover-background: #333;
-$menu-shadow: rgba(0, 0, 0, 0.5);
+$box-shadow: rgba(0, 0, 0, 0.2);
+$transparent: rgba(255, 255, 255, 0.2);
+$border-card-hover: #66fcf2a8;
+$card-off: rgba(75, 30, 30, 0.5);

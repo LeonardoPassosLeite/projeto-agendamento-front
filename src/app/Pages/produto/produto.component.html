@@ -1,1 +1,10 @@
-<p>produto works!</p>
+<div class="display-flex">
+    <app-produto-card 
+        *ngFor="let product of products" 
+        [product]="product">
+    </app-produto-card>
+
+    <mat-card class="product-card" (click)="addNewProduct()">
+        <mat-icon>add</mat-icon>
+    </mat-card>
+</div>

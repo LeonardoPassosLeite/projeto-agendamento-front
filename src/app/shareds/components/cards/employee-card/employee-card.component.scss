@@ -1,0 +1,61 @@
+.fifa-card {
+    width: 250px;
+    height: 350px;
+    background: linear-gradient(135deg, #ff6600 0%, #ffcc33 100%);
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .fifa-card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+  }
+  
+  .fifa-card-overall {
+    font-size: 45px;
+    font-weight: bold;
+  }
+  
+  .fifa-card-position {
+    font-size: 25px;
+    font-weight: bold;
+    align-self: flex-end;
+  }
+  
+  .fifa-card-image img {
+    width: 120px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin: 15px 0;
+  }
+  
+  .fifa-card-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .fifa-card-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .fifa-card-stat {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .fifa-card-stat span {
+    font-weight: bold;
+  }
+  
