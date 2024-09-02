@@ -20,20 +20,24 @@ export class ProdutoComponent {
     {
       id: 1,
       name: 'Produto 1',
-      modelo: 'Modelo do produto 1',
+      marca: 'JOHN DEERE',
+      localidade: 'Sapucaia do sul',
       ano: 1994,
       price: 199.99,
-      stock: 10,
-      imageUrl: 'https://via.placeholder.com/300'
+      quilometragem: 0,
+      disponibilidade: true,
+      imageUrl: ''
     },
     {
       id: 2,
-      name: 'Produto 2',
-      modelo: 'Modelo do produto 1',
-      ano: 1997,
-      price: 399.99,
-      stock: 0,
-      imageUrl: 'https://via.placeholder.com/300'
+      name: 'Produto 1',
+      marca: 'Fiat',
+      localidade: 'Sapucaia do sul',
+      ano: 1994,
+      price: 199.99,
+      quilometragem: 0,
+      disponibilidade: false,
+      imageUrl: ''
     },
   ];
 
@@ -41,10 +45,12 @@ export class ProdutoComponent {
     const newProduct: Produto = {
       id: this.products.length + 1,
       name: '',
-      modelo: '',
+      marca: '',
+      localidade: '',
       ano: 0,
       price: 0,
-      stock: 1,
+      quilometragem: 0,
+      disponibilidade: true,
       imageUrl: ''
     };
 

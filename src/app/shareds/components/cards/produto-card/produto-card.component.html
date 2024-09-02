@@ -1,76 +1,105 @@
-<mat-card class="product-card" [ngClass]="{'out-of-stock': product.stock === 0}">
-    <div class="header-container">
-        <div *ngIf="product.stock === 0" class="ribbon">Esgotado</div>
-        <mat-card-title>
-            <ng-container *ngIf="isEditing; else showName">
-                <input matInput placeholder="Nome do Produto" [(ngModel)]="product.name">
-            </ng-container>
-            <ng-template #showName>{{ product.name }}</ng-template>
-        </mat-card-title>
-    </div>
-
+<mat-card class="product-card">
+    <ng-container *ngIf="!product.disponibilidade">
+        <div class="sold-out-ribbon">ESGOTADO</div>
+    </ng-container>
     <div class="image-container">
-        <ng-container *ngIf="isEditing; else showImage">
+        <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}">
+        <ng-container *ngIf="isEditing">
             <div class="upload-placeholder" (click)="fileInput.click()">
                 <input type="file" #fileInput (change)="onFileSelected($event)" hidden>
                 <div class="upload-icon">
+                    <mat-icon>cloud_upload</mat-icon>
                     <p>Clique para adicionar uma imagem</p>
                 </div>
             </div>
         </ng-container>
-        <ng-template #showImage>
-            <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}">
-        </ng-template>
     </div>
 
-    <mat-card-content>
-        <div class="info-container">
-            <div class="info-item">
-                <strong>Preço:</strong>
+    <mat-card-content class="product-info fs-12 bold">
+        <div class="flex py-18">
+            <div class="flex gap-10">
+                <ng-container *ngIf="isEditing; else showYear">
+                    <input matInput placeholder="Ano" [(ngModel)]="product.ano" class="edit-input year-input">
+                </ng-container>
+                <ng-template #showYear>
+                    <div class="year-ribbon">{{ product.ano }}</div>
+                </ng-template>
+
+                <ng-container *ngIf="isEditing; else showName">
+                    <input matInput placeholder="Nome do Produto" [(ngModel)]="product.name"
+                        class="edit-input name-input">
+                </ng-container>
+                <ng-template #showName>
+                    <div class="fs-18">{{ product.name }}</div>
+                </ng-template>
+            </div>
+        </div>
+
+        <div class="d-grid gap-10">
+            <div class="brand-location">
+                <ng-container *ngIf="isEditing; else showBrand">
+                    <input matInput placeholder="Marca" [(ngModel)]="product.marca" class="edit-input brand-input">
+                </ng-container>
+                <ng-template #showBrand>
+                    <div class="py-18 fs-16">{{ product.marca }}</div>
+                </ng-template>
+
+                <ng-container *ngIf="isEditing; else showLocation">
+                    <input matInput placeholder="Localidade" [(ngModel)]="product.localidade"
+                        class="edit-input location-input">
+                </ng-container>
+                <ng-template #showLocation>
+                    <div class="flex">
+                        <mat-icon>location_on</mat-icon>
+                        <span>{{ product.localidade }}</span>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div class="grid-column-2">
+                <ng-container *ngIf="isEditing; else showKm">
+                    <input matInput type="number" placeholder="Quilometragem" [(ngModel)]="product.quilometragem"
+                        class="edit-input km-input">
+                </ng-container>
+                <ng-template #showKm>
+                    <div class="flex py-18">
+                        <mat-icon>speed</mat-icon>
+                        <span>{{ product.quilometragem }} KM</span>
+                    </div>
+                </ng-template>
+
                 <ng-container *ngIf="isEditing; else showPrice">
-                    <input matInput type="number" placeholder="Preço" [(ngModel)]="product.price">
+                    <input matInput type="number" placeholder="Preço" [(ngModel)]="product.price"
+                        class="edit-input price-input">
                 </ng-container>
-                <ng-template #showPrice>{{ product.price | currency:'BRL' }}</ng-template>
+                <ng-template #showPrice>
+                    <div>
+                        <div class="fs-16">{{ product.price | currency:'BRL' }}</div>
+                    </div>
+                </ng-template>
             </div>
-            <div class="info-item">
-                <strong>Estoque:</strong>
-                <ng-container *ngIf="isEditing; else showStock">
-                    <input matInput type="number" placeholder="Estoque" [(ngModel)]="product.stock">
-                </ng-container>
-                <ng-template #showStock>{{ product.stock }}</ng-template>
-            </div>
-            <div class="info-item">
-                <strong>Modelo:</strong>
-                <ng-container *ngIf="isEditing; else showModelo">
-                    <input matInput placeholder="Modelo" [(ngModel)]="product.modelo">
-                </ng-container>
-                <ng-template #showModelo>{{ product.modelo }}</ng-template>
-            </div>
-            <div class="info-item">
-                <strong>Ano:</strong>
-                <ng-container *ngIf="isEditing; else showAno">
-                    <input matInput type="number" placeholder="Ano" [(ngModel)]="product.ano">
-                </ng-container>
-                <ng-template #showAno>{{ product.ano }}</ng-template>
-            </div>
+
+            <div class="empty-space"></div>
         </div>
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-actions class="flex-start">
         <ng-container *ngIf="isEditing; else showButtons">
             <button mat-raised-button color="primary" (click)="saveProduct()">Salvar</button>
         </ng-container>
         <ng-template #showButtons>
-            <button mat-raised-button color="primary" (click)="addToCustomer(product)" [disabled]="product.stock === 0">
+            <button mat-raised-button color="primary" (click)="addToCustomer(product)"
+                [disabled]="product.disponibilidade === false">
                 <mat-icon>add_shopping_cart</mat-icon>
                 Selecionar Cliente
             </button>
             <button mat-icon-button (click)="teste()">
                 <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button>
-                <mat-icon>visibility</mat-icon>
-            </button>
+            <div class="margin-left"> <button mat-icon-button>
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </div>
         </ng-template>
     </mat-card-actions>
 </mat-card>

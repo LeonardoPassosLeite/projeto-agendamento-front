@@ -1,6 +1,7 @@
 @import"../../../shareds/styles/cards";
 
 .product-card {
+    width: 450px;
     min-height: 400px;
     border: 2px dashed $cyan;
     display: flex;

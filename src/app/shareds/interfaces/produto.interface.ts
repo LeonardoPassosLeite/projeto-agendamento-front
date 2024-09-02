@@ -1,9 +1,12 @@
 export interface Produto {
     id: number;
     name: string;
-    modelo: string;
+    marca: string;
+    localidade: string
     ano: number;
     price: number;
-    stock: number;
+    quilometragem: number;
     imageUrl: string;
+    disponibilidade: boolean;
+
 }

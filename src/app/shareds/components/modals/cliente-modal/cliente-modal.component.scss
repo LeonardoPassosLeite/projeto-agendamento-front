@@ -1,21 +1,58 @@
-.spacer {
-    flex: 1 1 auto;
+@import"../../../../.././shareds/colors.scss";
+
+.dialog-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
-.client-item {
-    display: flex;
-    align-items: center;
+.dialog-content {
+    padding: 1rem;
+}
+
+.search-field {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.client-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid $light-gray;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.client-avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
 }
 
 .client-name {
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
+    font-size: 1.1rem;
 }
 
-.mat-list-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.dialog-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-button {
+    font-size: 0.9rem;
+    color: $text-color-light;
+}
+
+.save-button {
+    background-color: $button-save;
+    color: $text-color-white;
+}
+
+.dialog-title,
+.client-name,
+.action-button,
+.save-button {
+    font-weight: bold;
 }

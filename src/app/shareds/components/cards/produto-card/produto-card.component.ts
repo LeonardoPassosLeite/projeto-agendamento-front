@@ -26,11 +26,15 @@ export class ProdutoCardComponent {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    if (this.product.stock === 1)
+    if (this.product.disponibilidade && !this.product.name)
       this.isEditing = true;
   }
 
-  teste(){
+  toggleEdit() {
+    this.isEditing = !this.isEditing;
+  }
+
+  teste() {
     this.isEditing = true;
   }
 
@@ -55,6 +59,6 @@ export class ProdutoCardComponent {
   }
 
   saveProduct() {
-    this.isEditing = false;
+    this.toggleEdit();
   }
 }

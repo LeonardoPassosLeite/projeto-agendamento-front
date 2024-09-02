@@ -1,0 +1,27 @@
+@import"../colors.scss";
+
+.upload-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $upload;
+    color: $white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 5;
+}
+
+.upload-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.upload-placeholder p {
+    margin: 0;
+    font-size: 14px;
+}
