@@ -20,7 +20,7 @@
 .image-container {
     position: relative;
     text-align: center;
-    height: 450px;
+    height: 250px;
     overflow: hidden;
     background-color: $transparent;
 }
@@ -64,21 +64,6 @@ button span {
     transform: rotate(-45deg); 
     z-index: 10;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-card {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    max-width: 600px;
-    width: 100%;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 30%, #c3cfe2 100%);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 400px; 
 }
 
 .empty-space {

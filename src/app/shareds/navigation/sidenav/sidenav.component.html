@@ -1,38 +1,29 @@
-<mat-drawer-container class="main-container">
-    <mat-drawer mode="side" opened class="side-menu">
-        <div class="menu-header">
-            <span class="menu-icon">🎮</span>
-        </div>
-        <mat-nav-list>
-            <mat-list-item routerLink="/funcionarios" routerLinkActive="active" class="menu-item">
-                <span class="menu-icon">🎮</span>
-                <span class="menu-text">Funcionarios</span>
-            </mat-list-item>
-            <mat-list-item routerLink="/clientes" routerLinkActive="active" class="menu-item">
-                <span class="menu-icon">🎮</span>
-                <span class="menu-text">Clientes</span>
-            </mat-list-item>
-            <mat-list-item routerLink="/produtos" routerLinkActive="active" class="menu-item">
-                <span class="menu-icon">🎮</span>
-                <span class="menu-text">Produtos</span>
-            </mat-list-item>
-            <mat-list-item 
-            class="menu-item" 
-            [matMenuTriggerFor]="subMenu"
-            (mouseenter)="menuTrigger.openMenu()"
-            #menuTrigger="matMenuTrigger">
-              <span class="menu-icon">🎮</span>
-              <span class="menu-text">Componentes</span>
-          </mat-list-item>
-        </mat-nav-list>
-    </mat-drawer>
-    <mat-drawer-content>
-        <router-outlet></router-outlet>
-    </mat-drawer-content> 
-</mat-drawer-container>
+<div class="menu-container">
+    <div class="main-menu">
+        <ul>
+            <li *ngFor="let item of menuItems" (click)="selectMenu(item)">
+                <div class="menu-item">
+                    <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+                    <span>{{ item.label }}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
 
-<mat-menu #subMenu="matMenu">
-    <button mat-menu-item routerLink="/product-card" routerLinkActive="active">Componente 1</button>
-    <button mat-menu-item routerLink="/componentes/component2">Componente 2</button>
-    <button mat-menu-item routerLink="/componentes/component3">Componente 3</button>
-</mat-menu>
+    <div class="submenu" *ngIf="submenuOpen && selectedMenuTitle">
+        <h3 class="fs-14 py-20 px-10">{{ selectedMenuTitle }}</h3>
+        <ul>
+            <li *ngFor="let subItem of activeSubmenu" (click)="navigateTo(subItem)">
+                <div class="submenu-item">
+                    <mat-icon *ngIf="subItem.icon">{{ subItem.icon }}</mat-icon>
+                    <span>{{ subItem.label }}</span>
+                </div>
+            </li>
+            <!-- <li (click)="closeSubmenu()">Voltar</li> -->
+        </ul>
+    </div>
+
+    <div class="content" [class.submenu-open]="submenuOpen">
+        <router-outlet></router-outlet>
+    </div>
+</div>
