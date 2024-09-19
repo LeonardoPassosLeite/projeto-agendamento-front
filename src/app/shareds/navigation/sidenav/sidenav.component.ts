@@ -64,8 +64,12 @@ export class SidenavComponent {
     },
     {
       label: 'Componentes',
-      icon: 'help',
+      icon: 'widgets',
       route: '/help',
+      submenu: [
+        {label: 'Input', icon:'',route:'/input'},
+        {label: 'Dropdown', icon:'',route:'/dropdown'},
+      ]
     },
   ];
 

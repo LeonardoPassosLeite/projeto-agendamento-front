@@ -1,0 +1,43 @@
+@import '../colors.scss';
+
+.closed-input-container,
+.closed-dropdown-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+
+    input,
+    select {
+        width: 100%;
+        padding: 10px 10px;
+        font-size: 16px;
+        background: none;
+        border: 1px solid $gray;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        line-height: 1.5;
+
+        &:focus {
+            border-color: $blue-gray;
+        }
+
+        &:focus+.label,
+        &:not(:placeholder-shown)+.label {
+            top: -18px;
+            left: 10px;
+            font-weight: bold;
+            color: $blue-gray;
+            font-size: 14px;
+        }
+    }
+
+    .label {
+        position: absolute;
+        font-size: 16px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        background-color: transparent;
+    }
+}

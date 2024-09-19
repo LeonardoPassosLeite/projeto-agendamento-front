@@ -1,13 +1,7 @@
-<div class="dropdown-container">
-    <button mat-button [matMenuTriggerFor]="menu" class="custom-dropdown-button">
-      <span class="dropdown-text">{{ buttonText }}</span>
-      <mat-icon class="arrow-icon">expand_more</mat-icon>
-    </button>
-    <mat-divider class="underline"></mat-divider>
-  </div>
-  
-  <mat-menu #menu="matMenu" class="custom-dropdown-menu">
-    <ng-container *ngFor="let option of options">
-      <button mat-menu-item>{{ option }}</button>
-    </ng-container>
-  </mat-menu>  
+<div class="closed-dropdown-container">
+  <select id="{{ selectId }}" name="{{ selectId }}" required>
+    <option value="" disabled selected hidden></option>
+    <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+  </select>
+  <label for="{{ selectId }}" class="label">{{ labelText }}</label>
+</div>

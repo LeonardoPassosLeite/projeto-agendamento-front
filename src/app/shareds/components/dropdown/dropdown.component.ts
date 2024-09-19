@@ -5,6 +5,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
+
 @Component({
   selector: 'app-dropdown',
   standalone: true,
@@ -12,7 +13,9 @@ import { MatMenuModule } from '@angular/material/menu';
   templateUrl: './dropdown.component.html',
   styleUrl: './dropdown.component.scss'
 })
+
 export class DropdownComponent {
-  @Input() buttonText: string = 'Menu'; 
-  @Input() options: string[] = [];   
+  @Input() labelText: string = 'Nome Exemplo';
+  @Input() selectId: string = '';
+  @Input() options: { label: string, value: string }[] = [];
 }
