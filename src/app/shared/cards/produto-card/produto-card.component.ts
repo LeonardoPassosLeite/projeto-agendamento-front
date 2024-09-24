@@ -37,6 +37,12 @@ export class ProdutoCardComponent {
     { label: 'marca 3', value: 'marca 3' },
   ]
 
+  locationOptions = [
+    { label: 'Sapucaia do Sul', value: 'Sapucaia do Sul' },
+    { label: 'Canoas', value: 'Canoas' },
+    { label: 'Porto Porto', value: 'Porto Porto' },
+  ]
+
   notFoundOption = { label: 'Marca não encontrada', value: 'not_found' };
 
   ngOnInit() {

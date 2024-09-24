@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, forwardRef } from '@angular/core';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BaseInputComponent } from '../base-input.component';
 
@@ -9,8 +9,15 @@ import { BaseInputComponent } from '../base-input.component';
   imports: [CommonModule, FormsModule],
   templateUrl: './number-input.component.html',
   styleUrls: ['./number-input.component.scss'],
-  providers: []
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => NumberInputComponent),
+      multi: true
+    }
+  ]
 })
+
 export class NumberInputComponent extends BaseInputComponent<number> {
   override handleInput(event: Event): void {
     const target = event.target as HTMLInputElement;

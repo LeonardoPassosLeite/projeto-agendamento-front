@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { BaseInputComponent } from '../base-input.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-dropdown',
@@ -9,15 +9,18 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
-  providers: []
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DropdownComponent),
+      multi: true
+    }
+  ]
 })
+
 export class DropdownComponent extends BaseInputComponent<string> {
   @Input() selectId: string = '';
   @Input() options: { label: string, value: string }[] = [];
 
-  override handleInput(event: Event): void {
-    const target = event.target as HTMLSelectElement;
-    this.value = target.value;
-    this.onChange(this.value);
-  }
+  override handleInput(event: Event): void { }
 }

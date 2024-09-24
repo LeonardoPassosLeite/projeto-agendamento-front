@@ -45,8 +45,8 @@
                 </ng-template>
 
                 <ng-container *ngIf="isEditing; else showLocation">
-                    <input matInput placeholder="Localidade" [(ngModel)]="product.localidade"
-                        class="edit-input location-input">
+                    <app-dropdown selectId="location" [(ngModel)]="product.localidade" name="location"
+                        labelText="Localidade" [options]="locationOptions"></app-dropdown>
                 </ng-container>
                 <ng-template #showLocation>
                     <div class="d-flex">

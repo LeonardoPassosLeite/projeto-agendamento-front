@@ -33,5 +33,9 @@ export class BaseInputComponent<T> implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  handleInput(event: Event): void {}
+  handleInput(event: Event): void {
+    const target = event.target as HTMLInputElement | HTMLSelectElement;
+    this.value = target.value as unknown as T;
+    this.onChange(this.value);
+  }
 }
