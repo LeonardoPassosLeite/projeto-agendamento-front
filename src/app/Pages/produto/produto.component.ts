@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ProdutoCardComponent } from "../../shareds/components/cards/produto-card/produto-card.component";
-import { Produto } from '../../shareds/interfaces/produto.interface';
+import { Produto } from '../../shared/interfaces/produto.interface';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../../shareds/Commons/MaterialModule';
+import { ProdutoCardComponent } from '../../shared/cards/produto-card/produto-card.component';
 
 @Component({
   selector: 'app-produto',
@@ -19,8 +19,8 @@ export class ProdutoComponent {
   products: Produto[] = [
     {
       id: 1,
-      name: 'Produto 1',
-      marca: 'JOHN DEERE',
+      nome: 'Produto 1',
+      marca: 'marca 1',
       localidade: 'Sapucaia do sul',
       ano: 1994,
       price: 199.99,
@@ -30,7 +30,7 @@ export class ProdutoComponent {
     },
     {
       id: 2,
-      name: 'Produto 1',
+      nome: 'Produto 1',
       marca: 'Fiat',
       localidade: 'Sapucaia do sul',
       ano: 1994,
@@ -44,7 +44,7 @@ export class ProdutoComponent {
   addNewProduct() {
     const newProduct: Produto = {
       id: this.products.length + 1,
-      name: '',
+      nome: '',
       marca: '',
       localidade: '',
       ano: 0,

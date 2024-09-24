@@ -1,10 +1,12 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { CommonModule } from "@angular/common";
+import { Component, Inject } from "@angular/core";
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from "@angular/material/dialog";
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatListModule } from '@angular/material/list';
-import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '../../../../../shareds/Commons/MaterialModule';
-import { CommonModule } from '@angular/common';
+import { MatListModule } from "@angular/material/list";
+import { MaterialModule } from "../../../../shareds/Commons/MaterialModule";
+import { FormsModule } from "@angular/forms";
+
+
 @Component({
   selector: 'app-cliente-modal',
   standalone: true,

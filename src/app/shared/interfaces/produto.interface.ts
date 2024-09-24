@@ -1,6 +1,6 @@
 export interface Produto {
     id: number;
-    name: string;
+    nome: string;
     marca: string;
     localidade: string
     ano: number;

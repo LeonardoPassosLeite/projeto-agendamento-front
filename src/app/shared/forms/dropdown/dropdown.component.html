@@ -1,7 +1,7 @@
 <div class="closed-dropdown-container">
-  <select id="{{ selectId }}" name="{{ selectId }}" required>
+  <select [id]="selectId" [name]="selectId" [(ngModel)]="value" (change)="handleInput($event)" required>
     <option value="" disabled selected hidden></option>
     <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
   </select>
-  <label for="{{ selectId }}" class="label">{{ labelText }}</label>
+  <label [for]="selectId" class="label">{{ labelText }}</label>
 </div>

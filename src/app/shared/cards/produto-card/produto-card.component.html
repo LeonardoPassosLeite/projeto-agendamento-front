@@ -3,7 +3,7 @@
         <div class="sold-out-ribbon">ESGOTADO</div>
     </ng-container>
     <div class="image-container">
-        <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}">
+        <img mat-card-image [src]="product.imageUrl" alt="{{ product.nome }}">
         <ng-container *ngIf="isEditing">
             <div class="upload-placeholder" (click)="fileInput.click()">
                 <input type="file" #fileInput (change)="onFileSelected($event)" hidden>
@@ -15,22 +15,21 @@
         </ng-container>
     </div>
 
-    <mat-card-content class="product-info fs-12 bold">
+    <mat-card-content class="fs-12 bold">
         <div class="d-flex py-18">
             <div class="d-flex gap-10">
                 <ng-container *ngIf="isEditing; else showYear">
-                    <input matInput placeholder="Ano" [(ngModel)]="product.ano" class="edit-input year-input">
+                    <app-input inputId="productYear" [(ngModel)]="product.ano" labelText="Ano"></app-input>
                 </ng-container>
                 <ng-template #showYear>
                     <div class="year-ribbon">{{ product.ano }}</div>
                 </ng-template>
 
                 <ng-container *ngIf="isEditing; else showName">
-                    <input matInput placeholder="Nome do Produto" [(ngModel)]="product.name"
-                        class="edit-input name-input">
+                    <app-input inputId="productName" [(ngModel)]="product.nome" labelText="Nome do Produto"></app-input>
                 </ng-container>
                 <ng-template #showName>
-                    <div class="fs-18">{{ product.name }}</div>
+                    <div class="fs-18">{{ product.nome }}</div>
                 </ng-template>
             </div>
         </div>
@@ -38,7 +37,8 @@
         <div class="d-grid gap-10">
             <div class="brand-location">
                 <ng-container *ngIf="isEditing; else showBrand">
-                    <input matInput placeholder="Marca" [(ngModel)]="product.marca" class="edit-input brand-input">
+                    <app-dropdown selectId="productMark" [(ngModel)]="product.marca" name="productMark"
+                        labelText="Marca" [options]="markOptions"></app-dropdown>
                 </ng-container>
                 <ng-template #showBrand>
                     <div class="py-18 fs-16">{{ product.marca }}</div>
@@ -58,8 +58,9 @@
 
             <div class="grid-column-2">
                 <ng-container *ngIf="isEditing; else showKm">
-                    <input matInput type="number" placeholder="Quilometragem" [(ngModel)]="product.quilometragem"
-                        class="edit-input km-input">
+                    <app-number-input inputId="productQuilometragem" [(ngModel)]="product.quilometragem"
+                        labelText="Quilometragem">
+                    </app-number-input>
                 </ng-container>
                 <ng-template #showKm>
                     <div class="d-flex py-18">
@@ -93,7 +94,7 @@
                 <mat-icon>add_shopping_cart</mat-icon>
                 Selecionar Cliente
             </button>
-            <button mat-icon-button (click)="teste()">
+            <button mat-icon-button (click)="edit()">
                 <mat-icon>edit</mat-icon>
             </button>
             <div class="margin-left"> <button mat-icon-button>

@@ -37,6 +37,7 @@ export class SidenavComponent {
         { label: "Produtos", icon: '', route: "/produtos" },
         { label: "Clientes", icon: '', route: "/dropdown" },
         { label: "Funcionarios", icon: '', route: "/produtos" },
+        { label: "marca", icon: '', route: "/marcas" },
         { label: "Categorias", icon: '', route: "/produtos" },
       ]
     },
@@ -69,6 +70,7 @@ export class SidenavComponent {
       submenu: [
         {label: 'Input', icon:'',route:'/input'},
         {label: 'Dropdown', icon:'',route:'/dropdown'},
+        {label: 'Number Input', icon:'',route:'/number-input'},
       ]
     },
   ];
