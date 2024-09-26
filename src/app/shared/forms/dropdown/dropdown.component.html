@@ -1,4 +1,4 @@
-<div class="closed-dropdown-container">
+<div class="dropdown-container">
   <select [id]="selectId" [name]="selectId" [(ngModel)]="value" (change)="handleInput($event)" required>
     <option value="" disabled selected hidden></option>
     <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>

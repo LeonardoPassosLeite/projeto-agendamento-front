@@ -1,11 +1,13 @@
 @import '../colors.scss';
 
-.closed-input-container,
-.closed-dropdown-container {
+.input-container,
+.dropdown-container,
+.datepicker-container {
     position: relative;
     width: 100%;
-    max-width: 400px;
-    margin: 20px 0;
+    max-width: 90%;
+    margin: 10px 0;
+    gap: 10px;
 
     input,
     select {
@@ -18,7 +20,7 @@
         outline: none;
         transition: border-color 0.3s ease;
         line-height: 1.5;
-    
+
         &:focus {
             border-color: $blue-gray;
         }
@@ -40,4 +42,5 @@
         transition: all 0.3s ease;
         background-color: transparent;
     }
+    
 }

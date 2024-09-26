@@ -2,6 +2,7 @@
     <ng-container *ngIf="!product.disponibilidade">
         <div class="sold-out-ribbon">ESGOTADO</div>
     </ng-container>
+
     <div class="image-container">
         <img mat-card-image [src]="product.imageUrl" alt="{{ product.nome }}">
         <ng-container *ngIf="isEditing">
@@ -15,35 +16,54 @@
         </ng-container>
     </div>
 
-    <mat-card-content class="fs-12 bold">
-        <div class="d-flex py-18">
-            <div class="d-flex gap-10">
-                <ng-container *ngIf="isEditing; else showYear">
-                    <app-input inputId="productYear" [(ngModel)]="product.ano" labelText="Ano"></app-input>
-                </ng-container>
-                <ng-template #showYear>
-                    <div class="year-ribbon">{{ product.ano }}</div>
-                </ng-template>
+    <mat-card-content>
+        <div class="d-flex gap-10 bottom-18">
+            <ng-container *ngIf="isEditing; else showYear">
+                <div class="ano-input-container">
+                    <app-datepicker selectId="productYear" [(ngModel)]="product.ano" name="productYear"
+                        labelText="Ano"></app-datepicker>
+                </div>
+            </ng-container>
+            <ng-template #showYear>
+                <div class="year-ribbon fs-12">{{ product.ano }}</div>
+            </ng-template>
 
-                <ng-container *ngIf="isEditing; else showName">
-                    <app-input inputId="productName" [(ngModel)]="product.nome" labelText="Nome do Produto"></app-input>
-                </ng-container>
-                <ng-template #showName>
-                    <div class="fs-18">{{ product.nome }}</div>
-                </ng-template>
-            </div>
+            <ng-container *ngIf="isEditing; else showName">
+                <div class="nome-input-container">
+                    <app-input selectId="productName" [(ngModel)]="product.nome" name="productName"
+                        labelText="Nome"></app-input>
+                </div>
+            </ng-container>
+            <ng-template #showName>
+                <span>{{ product.nome }}</span>
+            </ng-template>
         </div>
 
-        <div class="d-grid gap-10">
-            <div class="brand-location">
-                <ng-container *ngIf="isEditing; else showBrand">
+        <div class="d-grid bold">
+            <div class="bottom-10">
+                <ng-container *ngIf="isEditing; else showMark">
                     <app-dropdown selectId="productMark" [(ngModel)]="product.marca" name="productMark"
                         labelText="Marca" [options]="markOptions"></app-dropdown>
                 </ng-container>
-                <ng-template #showBrand>
-                    <div class="py-18 fs-16">{{ product.marca }}</div>
+                <ng-template #showMark>
+                    <div>{{ product.marca }}</div>
                 </ng-template>
+            </div>
 
+            <div class="bottom-10 fs-12">
+                <ng-container *ngIf="isEditing; else showKm">
+                    <app-number-input inputId="productQuilometer" [(ngModel)]="product.quilometragem"
+                        labelText="Km"></app-number-input>
+                </ng-container>
+                <ng-template #showKm>
+                    <div class="d-flex">
+                        <mat-icon>speed</mat-icon>
+                        <span>{{ product.quilometragem }} KM</span>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div class="fs-12">
                 <ng-container *ngIf="isEditing; else showLocation">
                     <app-dropdown selectId="location" [(ngModel)]="product.localidade" name="location"
                         labelText="Localidade" [options]="locationOptions"></app-dropdown>
@@ -56,35 +76,21 @@
                 </ng-template>
             </div>
 
-            <div class="grid-column-2">
-                <ng-container *ngIf="isEditing; else showKm">
-                    <app-number-input inputId="productQuilometragem" [(ngModel)]="product.quilometragem"
-                        labelText="Quilometragem">
-                    </app-number-input>
-                </ng-container>
-                <ng-template #showKm>
-                    <div class="d-flex py-18">
-                        <mat-icon>speed</mat-icon>
-                        <span>{{ product.quilometragem }} KM</span>
-                    </div>
-                </ng-template>
-
+            <div>
                 <ng-container *ngIf="isEditing; else showPrice">
-                    <input matInput type="number" placeholder="Preço" [(ngModel)]="product.price"
-                        class="edit-input price-input">
+                    <app-number-input inputId="productPrice" [(ngModel)]="product.preco"
+                        labelText="Preço"></app-number-input>
                 </ng-container>
                 <ng-template #showPrice>
                     <div>
-                        <div class="fs-16">{{ product.price | currency:'BRL' }}</div>
+                        <div class="fs-16">{{ product.preco | currency:'BRL' }}</div>
                     </div>
                 </ng-template>
             </div>
-
-            <div class="empty-space"></div>
         </div>
     </mat-card-content>
 
-    <mat-card-actions class="flex-start">
+    <mat-card-actions class="actions-container">
         <ng-container *ngIf="isEditing; else showButtons">
             <button mat-raised-button color="primary" (click)="saveProduct()">Salvar</button>
         </ng-container>
@@ -97,10 +103,9 @@
             <button mat-icon-button (click)="edit()">
                 <mat-icon>edit</mat-icon>
             </button>
-            <div class="margin-left"> <button mat-icon-button>
-                    <mat-icon>visibility</mat-icon>
-                </button>
-            </div>
+            <button class="eye-icon" mat-icon-button>
+                <mat-icon>visibility</mat-icon>
+            </button>
         </ng-template>
     </mat-card-actions>
 </mat-card>

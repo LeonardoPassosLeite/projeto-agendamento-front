@@ -22,5 +22,6 @@ export class DropdownComponent extends BaseInputComponent<string> {
   @Input() selectId: string = '';
   @Input() options: { label: string, value: string }[] = [];
 
+  //corrigir aqui
   override handleInput(event: Event): void { }
 }

@@ -1,17 +1,17 @@
-import { CommonModule } from "@angular/common";
-import { Component, Input } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { MaterialModule } from "../../../../shareds/Commons/MaterialModule";
-import { InputComponent } from "../../forms/input/input.component";
-import { NumberInputComponent } from "../../forms/number-input/number-input.component";
-import { DropdownComponent } from "../../forms/dropdown/dropdown.component";
-import { Produto } from "../../interfaces/produto.interface";
-import { MatDialog } from "@angular/material/dialog";
-import { ClienteModalComponent } from "../../modals/cliente-modal/cliente-modal.component";
-
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../../../../shareds/Commons/MaterialModule';
+import { InputComponent } from '../../../shared/forms/input/input.component';
+import { NumberInputComponent } from '../../../shared/forms/number-input/number-input.component';
+import { DatepickerComponent } from '../../../shared/forms/datepicker/datepicker.component';
+import { DropdownComponent } from '../../../shared/forms/dropdown/dropdown.component';
+import { Produto } from '../../../shared/interfaces/produto.interface';
+import { ClienteModalComponent } from '../../../shared/modals/cliente-modal/cliente-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-produto-card',
+  selector: 'app-produto-detail',
   standalone: true,
   imports: [
     CommonModule,
@@ -19,13 +19,14 @@ import { ClienteModalComponent } from "../../modals/cliente-modal/cliente-modal.
     MaterialModule,
     InputComponent,
     NumberInputComponent,
+    DatepickerComponent,
     DropdownComponent
   ],
-  templateUrl: './produto-card.component.html',
-  styleUrl: './produto-card.component.scss'
+  templateUrl: './produto-detail.component.html',
+  styleUrl: './produto-detail.component.scss'
 })
+export class ProdutoDetailComponent {
 
-export class ProdutoCardComponent {
   @Input() product!: Produto;
   isEditing = false;
 

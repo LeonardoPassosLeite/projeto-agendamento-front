@@ -1,0 +1,10 @@
+<div class="datepicker-container">
+    <input matInput [matDatepicker]="picker" [value]="displayedYear" readonly placeholder="Ano" required>
+    <label [for]="inputId" class="label">{{ labelText }}</label>
+    <button mat-icon-button (click)="picker.open()" aria-label="Selecionar ano">
+        <mat-icon>calendar_today</mat-icon>
+    </button>
+    <mat-datepicker #picker startView="multi-year" panelClass="year-picker"
+        (yearSelected)="chosenYearHandler($event, picker)">
+    </mat-datepicker>
+</div>

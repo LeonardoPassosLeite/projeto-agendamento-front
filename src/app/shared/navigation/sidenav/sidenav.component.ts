@@ -71,6 +71,7 @@ export class SidenavComponent {
         {label: 'Input', icon:'',route:'/input'},
         {label: 'Dropdown', icon:'',route:'/dropdown'},
         {label: 'Number Input', icon:'',route:'/number-input'},
+        {label: 'DatePicker', icon:'',route:'/datepicker'},
       ]
     },
   ];

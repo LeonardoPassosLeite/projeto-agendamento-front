@@ -4,7 +4,7 @@ export interface Produto {
     marca: string;
     localidade: string
     ano: number;
-    price: number;
+    preco: number;
     quilometragem: number;
     imageUrl: string;
     disponibilidade: boolean;

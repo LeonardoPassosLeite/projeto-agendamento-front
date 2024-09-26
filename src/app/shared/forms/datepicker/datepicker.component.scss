@@ -1,0 +1,26 @@
+@import '../../../../shareds/styles/inputs';
+
+.datepicker-container {
+    input {
+
+        &:focus+.label,
+        &:not([value=""])+.label {
+            top: -18px;
+            left: 5px;
+            font-weight: bold;
+            color: $blue-gray;
+            font-size: 14px;
+        }
+    }
+
+    button[mat-icon-button] {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+    }
+}

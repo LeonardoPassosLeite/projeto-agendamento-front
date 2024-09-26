@@ -4,15 +4,13 @@
     border-radius: 20px;
     overflow: hidden;
     max-width: 450px;
-    max-height: 450px;
     min-width: 450px;
-    min-height: 450px;
-    width: 95%;
+    max-height: 480px;
+    min-height: 480px;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #f5f7fa 30%, #c3cfe2 100%);
     position: relative;
     padding: 16px;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -40,6 +38,6 @@
     height: 20px;
     background: $transparent;
     border-radius: 50%;
-    transform: translate(-40%, 66%);
+    transform: translate(-30%, 68%);
     z-index: 1;
 }
